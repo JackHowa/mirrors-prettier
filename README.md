@@ -19,7 +19,18 @@ Add this to your `.pre-commit-config.yaml`:
     -   id: prettier
 ```
 
-*note*: only prettier versions >= 2.1.0 are supported
+*note*: only prettier versions >= 2.1.0 are supported. Prettier versions < 2.7.1 and > v3.0.0-alpha.0 are supported via the following configuration if you want `2.8.0`:
+
+```yaml
+ - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: "v2.7.1"
+    hooks:
+      - id: prettier
+        files: '\.(jsx?|tsx?|css)$'
+        additional_dependencies:
+          - prettier@2.8.0
+```
+
 
 When using plugins with `prettier` you'll need to declare them under
 `additional_dependencies`. For example:
